@@ -2,21 +2,21 @@ sqlite: &sqlite
   adapter: sqlite3
   verbosity: quiet
 
-postgresql: &postgresql
-  adapter: postgresql
-  encoding: utf8
-  pool: 5
-  username: angular
-  password: password
+#postgresql: &postgresql
+#  adapter: postgresql
+#  encoding: utf8
+#  pool: 5
+#  username: angular
+#  password: password
 
 test:
   <<: *sqlite
-  database: tmp/dbs/angular_devise_test.db
+  database: db/angular_devise_test.db
 
 development:
   <<: *sqlite
-  database: tmp/dbs/angular_devise_development.db
+  database: db/angular_devise_development.db
 
 production:
-  <<: *postgresql
-  database: angular_devise_production
+  <<: *sqlite
+  database: db/angular_devise_production.db
